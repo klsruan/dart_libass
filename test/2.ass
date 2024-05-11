@@ -28,4 +28,4 @@ Style: Type,Georgia,32,&H00FAFEFF,&H000000FF,&H00460C0A,&H00000000,0,0,0,0,100,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:24.89,0:00:26.30,Default,NTP,0,0,0,,Не смей.
+Dialogue: 0,0:00:24.89,0:00:26.30,Default,NTP,0,0,0,,Вітаю.

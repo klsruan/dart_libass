@@ -81,6 +81,19 @@ class DartLibass {
     track = bindings.ass_read_file(library, filePath, ffi.nullptr);
   }
 
+  setTrack(File subtitle) {
+    ffi.Pointer<ffi.Char> filePath =
+        subtitle.uri.path.toNativeUtf8().cast<ffi.Char>();
+
+    track = bindings.ass_read_file(library, filePath, ffi.nullptr);
+  }
+
+  dispose() {
+    bindings.ass_clear_fonts(library);
+    bindings.ass_renderer_done(renderer);
+    bindings.ass_library_done(library);
+  }
+
   getFrame(int timestamp) async {
     bindings.ass_set_frame_size(renderer, width, height);
 
