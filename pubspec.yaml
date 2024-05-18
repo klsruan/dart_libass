@@ -1,6 +1,6 @@
 name: dart_libass
 description: "Libass integration for dart"
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/wiedymi/dart_libass
 
 environment:
