@@ -3,7 +3,6 @@ library dart_libass;
 import 'dart:async';
 import 'dart:ffi' as ffi;
 import 'package:flutter/foundation.dart';
-import 'package:path/path.dart' as path;
 import 'dart:ui' as ui;
 import 'package:ffi/ffi.dart';
 import 'dart:io';
@@ -39,13 +38,11 @@ class DartLibass {
 
     String libPath = '';
     if (Platform.isMacOS) {
-      libPath =
-          path.join(Directory.current.path, 'lib', 'macos', 'libass.9.dylib');
+      libPath = './lib/macos/libass.9.dylib';
     }
 
     if (Platform.isWindows) {
-      libPath =
-          path.join(Directory.current.path, 'lib', 'windows', 'libass.dll');
+      libPath = './lib/windows/libass.dll';
     }
 
     dylib = ffi.DynamicLibrary.open(libPath);
@@ -150,12 +147,17 @@ class DartLibass {
     }
 
     Future decodeImageFromPixels() async {
-      Completer c = new Completer();
+      Completer c = Completer();
 
-      ui.decodeImageFromPixels(memory, width, height, ui.PixelFormat.rgba8888,
-          (value) {
-        c.complete(value);
-      });
+      ui.decodeImageFromPixels(
+        memory,
+        width,
+        height,
+        ui.PixelFormat.rgba8888,
+        (value) {
+          c.complete(value);
+        },
+      );
 
       return c.future;
     }
