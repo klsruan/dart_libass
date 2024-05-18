@@ -38,11 +38,11 @@ class DartLibass {
 
     String libPath = '';
     if (Platform.isMacOS) {
-      libPath = './lib/macos/libass.9.dylib';
+      libPath = 'assets/macos/libass.9.dylib';
     }
 
     if (Platform.isWindows) {
-      libPath = './lib/windows/libass.dll';
+      libPath = 'assets/windows/libass.dll';
     }
 
     dylib = ffi.DynamicLibrary.open(libPath);
